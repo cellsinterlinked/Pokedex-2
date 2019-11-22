@@ -10,21 +10,21 @@ export default class Pokemon extends Component {
         types: [],
         description: '',
         stats: {
-            hp: "",
-            attack: "",
-            defense: "",
-            speed: "",
-            specialAttack: "",
-            specialDefense: ""
+            hp: '',
+            attack: '',
+            defense: '',
+            speed: '',
+            specialAttack: '',
+            specialDefense: ''
         },
-        height: "",
-        weight: "",
-        eggGroup: "",
-        abilities: "",
-        genderRatioMale: "",
-        genderRatioFemale: "",
-        evs: "",
-        hatchSteps: ""
+        height: '',
+        weight: '',
+        eggGroup: '',
+        abilities: '',
+        genderRatioMale: '',
+        genderRatioFemale: '',
+        evs: '',
+        hatchSteps: ''
         }
 
     async componentDidMount() {
@@ -97,7 +97,7 @@ export default class Pokemon extends Component {
 
         //get pokemon description, catch rate, egggroups, gender ratio, hatch steps
 
-        await Axios.get(pokemonSpeciesUrl.then(res => {
+        await Axios.get(pokemonSpeciesUrl).then(res => {
             let description = '';
             res.data.flavor_text_entries.some(flavor => {
                 if (flavor.language.name === 'en') {
@@ -132,7 +132,7 @@ export default class Pokemon extends Component {
                     hatchSteps
                 })
 
-            }))
+            })
                 this.setState({
                     imageUrl,
                     pokemonIndex,
