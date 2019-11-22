@@ -87,11 +87,11 @@ export default class Pokemon extends Component {
             }
             return false;
         }).map(stat => {
-            return `${stat.effort} ${stat.stat.name}`
+            return `${stat.effort} ${stat.stat.name
             .toLowerCase()
             .split('-')
             .map(s => s.charAt(0).toUpperCase() + s.substring(1))
-            .join(' ')
+            .join(' ')}`
         })
         .join(', ')
 
@@ -110,7 +110,7 @@ export default class Pokemon extends Component {
             const genderRatioFemale = 12.5 * femaleRate;
             const genderRatioMale = 12.5 * (8 - femaleRate);
 
-            const catchRate = Math.round((100/ 255) * res.data['capture_rate']) //gives you a percentage catch rate
+            const catchRate = Math.round((100 / 255) * res.data['capture_rate']) //gives you a percentage catch rate
 
             const eggGroups = res.data['egg_groups'].map(group => {
                 return group.name
@@ -132,13 +132,13 @@ export default class Pokemon extends Component {
                     hatchSteps
                 })
 
-        }))
+            }))
                 this.setState({
                     imageUrl,
                     pokemonIndex,
                     name,
                     types,
-                    state: {
+                    stats: {
                         hp,
                         attack,
                         defense,
